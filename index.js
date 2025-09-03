@@ -1,17 +1,10 @@
-let youtuber =  {
-    list: {
-        business: {
-            youtuber: [
-                {name:"しまぶ-", age: 20, teachProgramming() {} },
-                {name:"あっちゃん", age: 37, teachHistory() {} }
-            ],
-            teach() {}
-        },
-        entertainment: {
-            youtuber: [{ name: "ヒカキン" }, { name: "はじめしゃちょー" }],
-            makeSmile() {}
-        }
-    },
-    plan() {},
-    uploadVideo() {}
-};
+function confirmed(fn) {
+  const input = window.prompt("実行しますか?");
+  fn(input);
+}
+
+confirmed(function(input) {
+  if (input === "実行") {
+    console.log("リポジトリを削除");
+  }
+});
