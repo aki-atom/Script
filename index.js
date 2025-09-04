@@ -5,6 +5,7 @@ function confirmed(fn) {
 
 confirmed(function(input) {
   if (input === "実行") {
+    document.getElementById("title1").innerText = "実行しました。";
     console.log("リポジトリを削除");
   }
 });
