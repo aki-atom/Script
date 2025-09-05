@@ -1,11 +1,11 @@
-function confirmed(fn) {
-  const input = window.prompt("実行しますか?");
-  fn(input);
-}
+//const btn = document.getElementByID("button");
 
-confirmed(function(input) {
-  if (input === "実行") {
-    document.getElementById("title1").innerText = "実行しました。";
-    console.log("リポジトリを削除");
-  }
-});
+//btn.addEventListner("click", function() {
+//  console.log("フォロー解除");
+//});
+
+const foods = ["にんじん", "じゃがいも", "玉ねぎ"];
+
+foods.forEach(function (food) {
+  console.log(food);
+}); 
