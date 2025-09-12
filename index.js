@@ -1,5 +1,13 @@
+// DOM
 const button = document.getElementById("addBtn");
 const lists = document.getElementById("lists");
+
+// 関数(メソッド)
+function addList(user) {
+    const list = document.createElement("li");
+    list.innerText = user.name;
+    lists.appendChild(list);
+}
 
 async function getUsers() {
   // データのやり取り
@@ -10,15 +18,9 @@ async function getUsers() {
 
 async function listUsers() {
   const users = await getUsers();
-
-  // DOM操作
-  users.forEach(function(user) {
-    const list = document.createElement("li"); // "list" を "li" に修正
-    list.innerText = user.name;
-    lists.appendChild(list);
-  });
+  users.forEach(addList);
 }
 
-button.addEventListener("click", listUsers);
-
+// イベント
 window.addEventListener("load", listUsers);
+button.addEventListener("click", listUsers);
