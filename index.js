@@ -1,16 +1,14 @@
-let fruit = "バナナ";
+const balls = ["ボール", "ボール", "ボール", "ボール"];
+const isRainy = false;
 
-switch (fruit) {
-    case "バナナ":
-        console.log("バナナの値段は130円です!");
+for (let i = 1; i <= balls.length; i++) {
+    if (isRainy) {
+        console.log("雨なので素振りをしません!");
         break;
-    case "メロン":
-        console.log("メロンの値段は200円です!");
-        break;
-    case "いちご":
-        console.log("いちごの値段は160円です!");
-        break;
-    default:
-        console.log("正しいフルーツを指定してください");
-        break;
+    }
+    if (i == 3) {
+        console.log("休憩します。");
+        continue;
+    }
+    console.log("素振りをしました!");
 }
