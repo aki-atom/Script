@@ -1,14 +1,16 @@
-const balls = ["ボール", "ボール", "ボール", "ボール"];
-const isRainy = false;
+const isError = false;
 
-for (let i = 1; i <= balls.length; i++) {
-    if (isRainy) {
-        console.log("雨なので素振りをしません!");
-        break;
+function serverCall() {
+    if (isError) {
+        throw new Error("エラーが発生しました");
     }
-    if (i == 3) {
-        console.log("休憩します。");
-        continue;
-    }
-    console.log("素振りをしました!");
+    console.log("サーバーとの通信に成功しました");
+}
+
+try {
+  serverCall();
+} catch (error) {
+  console.error(error.message);  
+} finally {
+  console.log("処理が完了しました");
 }
