@@ -1,16 +1,15 @@
-const isError = false;
+class PC {
+  constructor(name, color, company, price) {
+    this.name = name;
+    this.color = color;
+    this.company = company;
+    this.price = price;
 
-function serverCall() {
-    if (isError) {
-        throw new Error("エラーが発生しました");
-    }
-    console.log("サーバーとの通信に成功しました");
+  }
 }
 
-try {
-  serverCall();
-} catch (error) {
-  console.error(error.message);  
-} finally {
-  console.log("処理が完了しました");
-}
+const macbook = new PC("Macbook", "silver", "Apple", 220000);
+const letsnote = new PC("Let's note", "white", "Panasonic", 180000);
+
+console.log(macbook);
+console.log(letsnote);
