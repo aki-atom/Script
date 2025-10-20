@@ -1,15 +1,13 @@
-function sayhello(callback) {
-  callback();
+let nameList = ["太郎", "二郎", "三郎"];
+
+for(const name of nameList) {
+  console.log(name);
 }
 
-sayhello(function () {
-  console.log("Hello");
+const ages = [10, 20,30,40,50];
+
+const adults = ages.filter(function (age) {
+  return age > 18;
 });
 
-console.log("1．データを取得中...");
-
-setTimeout(function () {
-  console.log("2．データが取得されました!");
-}, 2000);
-
-console.log("3．他の作業を続けます。");
+console.log(adults);
