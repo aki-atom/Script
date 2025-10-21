@@ -1,13 +1,27 @@
-let nameList = ["太郎", "二郎", "三郎"];
-
-for(const name of nameList) {
-  console.log(name);
+async function fetchData() {
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/1"
+    );
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 }
 
-const ages = [10, 20,30,40,50];
+async function fetchData2() {
+  try {
+    const response2 = fetch(
+      "https://jsonplaceholder.typicode.com/posts/1"
+    );
+    const data2 = response2.json();
+    console.log(data2);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
 
-const adults = ages.filter(function (age) {
-  return age > 18;
-});
-
-console.log(adults);
+fetchData();
+//非同期処理をしない場合
+fatchData2();
