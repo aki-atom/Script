@@ -1,13 +1,14 @@
-const container = document.querySelector(".container");
-// console.log(container);
-const btn = document.querySelector(".btn");
-// console.log(btn);
-btn.addEventListener("click", ()=>{
-  if (container.classList.contains(".show") == false) {
-    container.classList.add("show");
-  }
-});
+const container = document.querySelector("#container");
+const inputForm = document.querySelector("#inputForm");
+const saveBtn = document.querySelector("#saveBtn");
 
-container.addEventListener("transitionend", (e) => {
-  btn.textContent = "クリックされた!";
+// console.log(container);
+// console.log(inputForm);
+// console.log(saveBtn);
+
+saveBtn.addEventListener("click", ()=> {
+  const inputData = inputForm.value;
+  console.log(inputData);
+  localStorage.setItem("key", inputData);
+  inputForm.value = "";
 });
