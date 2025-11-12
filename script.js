@@ -1,55 +1,53 @@
-/* 条件分岐 if. else if, else
-if(条件1) {         条件1がtureなら処理1を実行
-    処理1            (それ以下は実行されない)
-} else if(条件2) {  条件2がtureなら処理2を実行
-    処理2            (それ以下は実行されない)
-} else {            どの行も満たさないとき処理3を実行
-    処理3
-} */
-
-let episode;
-let chopper_bounty;
-// episode = 100;
-// episode = 500;
-// episode = 900;
-episode = 1100;
-if (episode <=435) {
-    chopper_bounty = 0;
-} else if (episode <= 800) {
-    chopper_bounty = 50;
-} else if (episode <= 1057) {
-    chopper_bounty = 100;
-} else {
-    chopper_bounty = 1000;
-}
-console.log(`${episode}話のチョッパーの懸賞金は`);
-console.log(`${chopper_bounty}ベリー`);
-
-/* switch 変数の値で処理を切り分ける
-switch (式) {
-  case 値1 :
-    処理1
-  case 値2 :
-    処理2
-  default :         合致するケースが見つからなかったとき
-    処理3
-}
+//繰り返し while / do ... while/ for
+/* while
+  while(条件式){
+    条件式がtureのとき行う処理
+  }
 */
 
-let luffy    = { name: "ルフィ", gender: "男"};
-let nami     = { name: "ナミ", gender: "女"};
-let vegapunk = { name: "ベガバンク", gender: "不明"};
+let i = 1;   //仲間の人数
+console.log(`仲間が3人のとき--whlieのみ--`);
+while(i < 4){
+    console.log(` 仲間${i} 「ルフィは海賊王になる男だ」`);
+    i++;
+}
 
-let person_gender = luffy.gender;
-console.log(luffy.name);
-switch (person_gender) {
-    case "男":
-        console.log("あなたは男です");
-        break;
-    case "女":
-        console.log("あなたは女です");
-        break;
-    default:
-        console.log("あなたは何者ですか?");
-        break;
+i = 0;   //仲間の人数
+console.log(`仲間が0人のとき--whlieのみ--`);
+while(i < 0){
+    console.log(` 仲間${i} 「ルフィは海賊王になる男だ」`);
+    i++;
+}
+
+/* do while 条件によらず必ず1回は実行される
+  do {
+    条件式がtureのとき行う処理(ただし1回は必ず実行)
+  } while(条件式);
+*/
+
+i = 1;
+console.log(`仲間が0人のとき--do while--`);
+do {
+    console.log(` 仲間${i} 「ルフィは海賊王になる男だ」`);
+    i++;
+} while( i < 0);
+//条件によらず必ず1回は実行される
+
+/* for まとめて管理できる
+  for (初期化; 終了条件; 増減式) {
+    繰り返す処理
+  }
+*/
+
+console.log(`仲間が3人のとき--for--`);
+for (let m = 1; m < 4; m++){
+    console.log(` 仲間${m} 「ルフィは海賊王になる男だ」`);
+}
+//初期化(let m = 1)は最初の1回だけ実行
+//終了条件は、毎回実行される
+//増減式は、ループが1回実行されるたびに実行
+console.log(`仲間が6人のとき--for--`);
+for (let m = 2; m < 8; m+=2){
+    console.log(` 仲間${m-1} 「ルフィは海賊王になる男だ」`);
+    console.log(` 仲間${m} 「ルフィは海賊王になる男だ」`);
 }
