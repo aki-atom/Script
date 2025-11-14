@@ -1,53 +1,66 @@
-//繰り返し while / do ... while/ for
-/* while
-  while(条件式){
-    条件式がtureのとき行う処理
+// for..in / for..of / for
+// for..in オブジェクトのプロパティ(キー)を順に取り出す
+/*
+  for ( prop(仮変数) in object(オブジェクト)) {
+    処理
+    オブジェクトからキーを取り出し、順番に仮変数に入る
+  }
+*/
+let Arlong = {    //アーロン
+    age: 39,
+    height: 263,
+    bounty: "200万",
+    laughter: "シャハハハ"
+};
+//propにキーが順番に入る、iでも良い
+for ( prop in Arlong) {
+  console.log(prop);
+}
+//キーと値を表示
+console.log("---for in(オブジェクト)---");
+for ( i in Arlong) {
+  console.log(`アーロンの${i}は「${Arlong[i]}」`);
+}
+
+//for..of 配列などの内容を取り出したい時に利用
+/*
+  for ( element(仮変数) of array(配列)) {
+    処理
+    配列から要素を取り出し、順番に変数に入る
   }
 */
 
-let i = 1;   //仲間の人数
-console.log(`仲間が3人のとき--whlieのみ--`);
-while(i < 4){
-    console.log(` 仲間${i} 「ルフィは海賊王になる男だ」`);
-    i++;
+//海軍大将
+let admiral_members = ["赤犬", "青雉", "黄猿"];
+console.log("--for of (配列)---");
+for ( value of admiral_members) {
+  console.log(value);
 }
 
-i = 0;   //仲間の人数
-console.log(`仲間が0人のとき--whlieのみ--`);
-while(i < 0){
-    console.log(` 仲間${i} 「ルフィは海賊王になる男だ」`);
-    i++;
+admiral_members = ["赤犬", "青雉", "黄猿"];
+console.log("--for ofを使わない---");
+for ( i = 0; i < 3; i++ ) {
+  console.log(admiral_members[i]);
 }
-
-/* do while 条件によらず必ず1回は実行される
-  do {
-    条件式がtureのとき行う処理(ただし1回は必ず実行)
-  } while(条件式);
-*/
-
-i = 1;
-console.log(`仲間が0人のとき--do while--`);
-do {
-    console.log(` 仲間${i} 「ルフィは海賊王になる男だ」`);
-    i++;
-} while( i < 0);
-//条件によらず必ず1回は実行される
-
-/* for まとめて管理できる
-  for (初期化; 終了条件; 増減式) {
-    繰り返す処理
+admiral_members = ["赤犬", "青雉", "黄猿", "藤虎", "緑牛"];
+console.log("--for---");
+for ( i = 0; i < 5; i++ ) {
+  console.log(admiral_members[i]);
+}
+//ループから抜け出したいとき
+console.log("--for(breakあり)---");
+for ( i = 0; i < 5; i++ ) {
+  if (admiral_members[i] == "藤虎") {
+    break;   //ループ終了
   }
-*/
-
-console.log(`仲間が3人のとき--for--`);
-for (let m = 1; m < 4; m++){
-    console.log(` 仲間${m} 「ルフィは海賊王になる男だ」`);
+  console.log(admiral_members[i]);
 }
-//初期化(let m = 1)は最初の1回だけ実行
-//終了条件は、毎回実行される
-//増減式は、ループが1回実行されるたびに実行
-console.log(`仲間が6人のとき--for--`);
-for (let m = 2; m < 8; m+=2){
-    console.log(` 仲間${m-1} 「ルフィは海賊王になる男だ」`);
-    console.log(` 仲間${m} 「ルフィは海賊王になる男だ」`);
+//特定のループをスキップしたいとき
+console.log("--for(continueあり)---");
+for ( i = 0; i < 5; i++ ) {
+  if (admiral_members[i] == "赤犬" ||
+      admiral_members[i] == "青雉") {
+    continue;   //現在のループのみスキップ
+  }
+  console.log(admiral_members[i]);
 }
