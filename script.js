@@ -1,57 +1,62 @@
-// 例外処理 try..catch..finally
+// 数値の処理 小技集
 /*
-  try {
-    例外(エラー)が起きそうな処理  
-  } catch(exception) {
-    例外(エラー)が起きた時の処理
-  } finally {
-    例外(エラー)の有無に関係なく、実行
-  }
+  ①乱数を扱う方法
+  ②少数を特定の桁数で統一する方法
+  ③少数をを整数にするさまざまな方法
 */
 
-console.log("--例外が起きる---");
-  try {
-    console.log(one_peace);
-  } catch(exception) {
-    console.log("例外情報は⇩です");
-    console.log(exception.message);
-  } finally {
-    console.log("ワンピースの正体が気になります!");
-  }
-//例外が起きない例
-console.log("--例外が起きない---");
-  try {
-    console.log("one_peace");
-  } catch(ex) {
-    console.log("例外情報は⇩です");
-    console.log(ex.message);
-  } finally {
-    console.log("ワンピースの正体が気になります!");
-  }
-//例外を投げる(例外を発生させる) throw1
-console.log("--例外を投げる throw1---");
-let one_peace = "これまでに出会った仲間";
-  try {
-    console.log(one_peace);
-  } catch(ex) {
-    console.log("例外情報は⇩です");
-    console.log(ex.message);
-  } finally {
-    console.log("ワンピースの正体が気になります!");
-  }
+//①乱数 Math.random()
+let random_number = Math.random();
+console.log(random_number);
+//0以上1未満の乱数が表示される
 
-//例外を投げる(例外を発生させる) throw2
-console.log("--例外を投げる throw2---");
-one_peace = "これまでに出会った仲間";
-  try {
-    if (one_peace !== "") {
-      throw new TypeError("ワンピースの正体はまだ不明です");
-    }
-    console.log(one_peace);
-  } catch(ex) {
-    console.log("例外情報は⇩です");
-    console.log(ex.name);      //エラー名
-    console.log(ex.message);   //エラーメッセージ
-  } finally {
-    console.log("ワンピースの正体が気になります!");
-  }
+//②少数を特定の桁数にする toFixed
+let i = 1;
+console.log(`少数を${i}桁に統一`);
+console.log(random_number.toFixed(i));
+console.log(`少数を${i+1}桁に統一`);
+console.log(random_number.toFixed(i+1));
+
+//③整数にする
+console.log("乱数を百倍にする");
+console.log(random_number * 100);
+
+//round   四捨五入
+//ceil    切り上げ
+//floor   切り捨て
+console.log("小数点以下は切り捨てて整数へ");
+let random_integer = Math.floor(random_number * 100);
+console.log(random_integer);
+//0~99のランダムな整数を発生させる
+
+let one_piece_all_star =[
+  "ロロノア・ゾロ", "ポートガス・D・エース", "サンジ", 
+  "モンキー・D・ルフィ", "トニートニー・チョッパー", 
+  "ボア・ハンコック", "トラファルガー・ロー", "シャンクス",
+  "ジュラキュール・ミホーク", "サボ", "ナミ", "スモーカー",
+  "マルコ", "コラソン", "ニコ・ロビン", "モンキー・D・ガープ",
+  "サー・クロコダイル",  "エドワード・ニューゲート", 
+  "ボン・クレー", "シャーロット・プリン", "シルバーズ・レイリー",
+  "ユースタス・キッド", "レベッカ", "ペル",
+  "シャーロット・カタクリ", "ネフェルタリ・ビビ", "ウソップ",
+  "バギー", "ペローナ", "ヴィンスモーク・レイジュ", "バルトロメオ",
+  "ドンキホーテ・ドフラミンゴ", "ジンベエ", "カク",
+  "ベン・ベックマン", "クザン", "コビー", "フランキー", "ヤマト",
+  "ビスタ", "クンフージュゴン", "うるティ", "Dr.ヒルルク",
+  "藤虎", "ブルック", "ヒナ", "ガイモン", "カルガラ", "エネル", 
+  "ジュエリー・ボニー", "キャベンディッシュ", "光月おでん", 
+  "ウタ", "エンポリオ・イワンコフ", "ゼフ", "ネコマムシ", 
+  "カルー", "パウリー", "しらほし", "べポ", "コアラ", 
+  "ページワン", "モンキー・D・ドラゴン","ボルサリーノ", 
+  "ゴール・D・ロジャー", "カリファ", "ワイパー", "レオ", 
+  "センゴク",  "バーソロミュー・くま", "ゼファー", "ベビー5",  
+  "ロブ・ルッチ", "ベルメール", "たしぎ", "X・ドレーク", 
+  "カーリー・ダダン", "Dr.くれは", "ノジコ", "アイスバーグ",
+  "サカズキ", "カポネ・ベッジ", "カイドウ", "カヤ", "ウルージ",
+  "キラー", "パンダマン", "アイン", "キング", "ジョズ", 
+  "クロッカス", "マゼラン", "ラッキー・ルウ", "ダズ・ボーネス", 
+  "マーシャル・D・ティーチ", "ブラックマリア", "シュガー", 
+  "ペコムズ", "シャーロット・リンリン", "ヤソップ"
+];
+console.log("あなたをワンピースのキャラに例えると・・・");
+console.log(one_piece_all_star[random_integer]);
