@@ -1,58 +1,62 @@
-/* 関数の引数
-　①名前付き引数を受け取る方法
-　②可変長引数の関数を定義する方法
-　③可変長引数(配列)の関数を定義する方法
+/* クラス 新しいデータ型(設計図)
+  その型からインスタンス(オブジェクト)を作成する
+ コンストラクター→インスタンスを初期化(プロパティの準備)
+
+   class　クラス名 {
+      constructor(引数１, 引数２, 引数３){
+        this.プロパティ１ = 引数１,
+        this.プロパティ２ = 引数２,
+        this.プロパティ３ = 引数３
+      }
+   }
+   「new クラス名」でインスタンスを作成
 */
-//名前付き引数 ハッシュ形式で関数に引き渡せる引数
-let character = function (age, bust, waist, hip) {
-  console.log("年齢：" + age);
-  console.log("バスト：" + bust);
-  console.log("ウエスト：" + waist);
-  console.log("ヒップ：" + hip);
-}
-console.log("--普通の引数--")
-character(20, 98, 58 ,88);
-//何を引数で渡すかわからない
-//{},でわかりやすくすると
-function new_character({age, bust, waist,hip,}) {
-  console.log("年齢：" + age);
-  console.log("バスト：" + bust);
-  console.log("ウエスト：" + waist);
-  console.log("ヒップ：" + hip);
-}
 
-console.log("--名前付き引数--")
-new_character({age: 20, bust: 98, waist: 58, hip: 88});
-
-let nami = {
-    age: 20,
-    bust: 98,
-    waist: 58,
-    hip: 88,
-};
-console.log("--名前付き引数(変数)--")
-new_character(nami);
-// {}を変数に付けて渡す
-console.log("--特定のプロパティのみ--");
-function character_bust({ bust }) {
-  console.log("バスト：" + bust + "です！");
+class Character {
+    constructor(name, age, devil_fruit) {
+        this.name = name,
+            this.age = age,
+            this.devil_fruit = devil_fruit
+    }
+    saying(word) { //メソッド
+        return `${this.name}の名言「${word}」`
+    }
+    //static 静的メソッド（クラスメソッド）
+    //インスタンスを生成しなくても呼び出せる
+    //(インスタンスから呼び出せない)
+    static introduce() {
+        return "ワンピースキャラクターを作るクラスです"
+    }
 }
-character_bust(nami);
+console.log("--Luffy(インスタンス)--");
+let Luffy = new Character("ルフィ", 19, "ゴムゴムの実");
+console.log(Luffy.name);
+console.log(Luffy.age);
+console.log(Luffy.devil_fruit);
+console.log(Luffy.saying("仲間がいる゛よ！！！"));
+console.log("--Ace(インスタンス)--");
+let Ace = new Character("エース", 20, "メラメラの実");
+console.log(Ace.name);
+console.log(Ace.age);
+console.log(Ace.devil_fruit);
+console.log(Ace.saying("愛してくれてありがとう"));
+console.log("--static 静的メソッド--")
+console.log(Character.introduce());
+//console.log(Luffy.introduce()); は、静的メソッドがないので表示できない。
 
-//可変長引数 引数の個数が決まっていない関数
-//スプレッド構文
-function total(...bounty) {
-  let result = 0;
-  for (let num of bounty ){
-    result += num
-  }
-  return result
+//新しいメソッドを追加したい  prototype
+/// クラス名.prototype.メソッド名 = function(引数){..}
+Character.prototype.description = function () {
+    return `${this.name}は、${this.devil_fruit}の能力者です`
 }
-console.log("--懸賞金の合計2人--");
-console.log(total(30, 11)+"億");
-
-console.log("--懸賞金の合計3人--");
-console.log(total(30, 11, 5)+"億");
-//配列の場合は、...を付ける
-console.log("--配列の場合--");
-console.log(total(...[30, 11, 5]) + "億");
+console.log("--protptype メソッドを追加--");
+console.log(Luffy.description());
+console.log(Ace.description());
+//　インスタンスにメソッドを追加できる
+Luffy.pirate_king = function () {
+    return "海賊王に俺はなる！"
+}
+console.log("--インスタンスにメソッドを追加--");
+console.log(Luffy.pirate_king());
+//　そのインスタンス限定なので、他のインスタンスには使用不可
+console.log(Ace.pirate_king());
