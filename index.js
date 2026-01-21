@@ -1,58 +1,37 @@
-/* DOM操作(HTML文書をオブジェクトデータとして)
-①id属性による検索
-②タグ名による検索
-③name属性による検索
-④class属性による検索
-⑤セレクター式で検索
+/* ①要素の属性名をセットする方法
+   ②要素の属性を取得する方法
+   ③要素の属性を削除する方法
+
 */
-//①id属性による検索 getElementById
-console.log("--getElementById--");
-let title = document.getElementById("title");
-console.log(title);
-console.log("--textContent--");
-console.log(title.textContent);
 
-//②タグ名による検索 getElementsByTagName
-console.log("--getElementsByTagName--");
-let h2_elems = document.getElementsByTagName("h2");
-console.log(h2_elems);
-console.log("--textContent--");
-//console.log(h2_elems.textContent);
-for (let i = 0; i < h2_elems.length; i++) {
-    console.log(h2_elems[i].textContent);
+//①要素の属性名をセットしたい
+// setAttribute(属性名, 値)
+let luffy_input = document.getElementById("luffy");
+setTimeout(
+  () => { luffy_input.setAttribute("placeholder", "当たり前だ！！！") }
+  , 2000
+);
+setTimeout(
+  () => { luffy_input.setAttribute("style", "background-color: pink;") }
+  , 4000
+);
+
+//②要素の属性を取得したい
+// getAttribute(属性名, 値) / attributes
+let nami_input = document.getElementById("nami");
+let nami_placeholder = nami_input.getAttribute("placeholder");
+console.log("--getAttribute--")
+console.log(nami_placeholder);
+console.log("--attributes--")
+let nami_attributes = nami_input.attributes;
+for (let i = 0; i < nami_attributes.length ; i++){
+  console.log(nami_attributes[i]);
 }
 
-//③name属性による検索　getElementsByName
-console.log("--getElementsByName--");
-let name_elems = document.getElementsByName("fruits");
-console.log(name_elems);
-console.log("--value--");
-for (let i = 0; i < name_elems.length; i++) {
-    console.log(name_elems[i].value);
-}
-
-//④class属性による検索 getElementsByClassName
-console.log("--getElementsByClassName--");
-let class_elems = document.getElementsByClassName("man");
-console.log(class_elems);
-console.log("--textContent--");
-for (let i = 0; i < class_elems.length; i++) {
-    console.log(class_elems[i].textContent);
-}
-
-//⑤セレクター式で検索 querySelector
-//CSSに準じる　※getElement..と比べると低速
-console.log("--querySelector--");
-let elems = document.querySelector("form input");
-console.log(elems);
-console.log("--value--");
-console.log(elems.value);
-
-//⑤セレクター式で検索 querySelectorAll
-console.log("--querySelectorAll--");
-elems = document.querySelectorAll("form input");
-console.log(elems);
-console.log("--value--");
-for (let i = 0; i < elems.length; i++) {
-    console.log(elems[i].value);
-}
+//③要素の属性を削除したい
+// removeAttribute(属性名)
+let zoro_input = document.getElementById("zoro");
+setTimeout(
+  () => { zoro_input.removeAttribute("placeholder") }
+  , 3000
+);
