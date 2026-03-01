@@ -1,11 +1,31 @@
-<body>
-  <form>
-    <p>ルフィの名言</p>
-    <input type="text" id="luffy">
-    <p>ナミの名言</p>
-    <input type="text" id="nami" placeholder="海賊王になります">
-    <p>ゾロの名言</p>
-    <input type="text" id="zoro" placeholder="何もなかった">
-  </form>
-  <script src="index.js"></script>
-</body>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <p>
+      <button id="btn" type="button">クリック</button>
+       clickイベント(ルフィ画像)
+    </p>
+    <p>
+      <button id="reset" type="button">リセット</button>
+       clickイベント(画像削除)
+    </p>
+    <select id="select">
+      <option>選択肢１</option>
+      <option>選択肢２</option>
+    </select>
+    chageイベント(ゾロ画像)
+    <p>
+      <input id="input" type="text">
+       focusイベント(サンジ画像)
+    </p>
+    <div class="img">
+      <img id="pic" src="luffy.png" width="300" height="300"> 
+    </div>
+    <script src="index.js"></script>   
+  </body>
+</html>

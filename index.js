@@ -1,37 +1,36 @@
-/* ①要素の属性名をセットする方法
-   ②要素の属性を取得する方法
-   ③要素の属性を削除する方法
-
+/*イベントの操作
+イベント処理・・・イベントリスナー
+   →addEventListenerメソッド
+   要素.addEventListener(イベント種類, 処理, 方向)
+        mouseenter,mouseleave,click,change,focus
 */
 
-//①要素の属性名をセットしたい
-// setAttribute(属性名, 値)
-let luffy_input = document.getElementById("luffy");
-setTimeout(
-  () => { luffy_input.setAttribute("placeholder", "当たり前だ！！！") }
-  , 2000
-);
-setTimeout(
-  () => { luffy_input.setAttribute("style", "background-color: pink;") }
-  , 4000
-);
-
-//②要素の属性を取得したい
-// getAttribute(属性名, 値) / attributes
-let nami_input = document.getElementById("nami");
-let nami_placeholder = nami_input.getAttribute("placeholder");
-console.log("--getAttribute--")
-console.log(nami_placeholder);
-console.log("--attributes--")
-let nami_attributes = nami_input.attributes;
-for (let i = 0; i < nami_attributes.length ; i++){
-  console.log(nami_attributes[i]);
-}
-
-//③要素の属性を削除したい
-// removeAttribute(属性名)
-let zoro_input = document.getElementById("zoro");
-setTimeout(
-  () => { zoro_input.removeAttribute("placeholder") }
-  , 3000
-);
+let img = document.getElementById("pic");
+//マウスポインターが画像に乗ったとき
+img.addEventListener("mouseenter", function () {
+    this.src = "luffy2.png"
+    //this・・・    img
+});
+//マウスポインターが画像から外れたとき
+img.addEventListener("mouseleave", function () {
+    this.src = "luffy.png"
+});
+//clickイベント
+let btn = document.getElementById("btn");
+let reset = document.getElementById("reset");
+btn.addEventListener("click", function () {
+    img.src = "luffy.png"
+})
+reset.addEventListener("click", function () {
+    img.src = ""
+});
+//changeイベント
+let select = document.getElementById("select");
+select.addEventListener("change", function () {
+    img.src = "zoro.png"
+})
+//focusイベント
+let input = document.getElementById("input");
+input.addEventListener("focus", function () {
+    img.src = "sanji.png"
+})
