@@ -1,31 +1,74 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <title>フォームの操作</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="style.css">
   </head>
   <body>
-    <p>
-      <button id="btn" type="button">クリック</button>
-       clickイベント(ルフィ画像)
-    </p>
-    <p>
-      <button id="reset" type="button">リセット</button>
-       clickイベント(画像削除)
-    </p>
-    <select id="select">
-      <option>選択肢１</option>
-      <option>選択肢２</option>
-    </select>
-    chageイベント(ゾロ画像)
-    <p>
-      <input id="input" type="text">
-       focusイベント(サンジ画像)
-    </p>
-    <div class="img">
-      <img id="pic" src="luffy.png" width="300" height="300"> 
-    </div>
-    <script src="index.js"></script>   
+    <form>
+      <div>
+        <p>
+          <label for="name">キャラクター：</label>
+          <button id="name_btn">正解は？</button>
+        </p>
+        <input id="name" name="name" type="text" value="私は誰でしょう？">
+      </div>
+      <div>
+        <p><label for="profile">プロフィール：</label></p>
+        <p>
+          <textarea id="profile" name="profile">身長: 240cm, 好きな食べ物: ハンバーガー
+          </textarea>
+        </p>
+        <button id="textarea_btn">valueで取得したもの↓</button>
+        <p id="textarea_value"></p>
+      </div>
+      <div>
+        <label for="admiral_members">一番強いのは誰？：</label>
+        <select id="admiral_members" name="admiral_members">
+          <option value="赤犬">赤犬</option>
+          <option value="青雉">青雉</option>
+          <option value="黄猿">黄猿</option>
+        </select>
+        <div>
+          <img id="select_value" src="img/akainu.png">
+      </div>     
+         <div>
+          <p>四校最強は誰？</p>
+          <label>
+            <input name="four_emperors" type="radio" value="白ひげ"/>白ひげ
+          </label>
+          <label>
+            <input name="four_emperors" type="radio" value="シャンクス" />シャンクス
+          </label>
+          <label>
+            <input name="four_emperors" type="radio" value="カイドウ" />カイドウ
+          </label>
+          <label>
+            <input name="four_emperors" type="radio" value="ビッグマム" />ビッグマム
+          </label>
+          <p>
+            <button id="four_emperors_btn">あなたが選んだものは？</button>
+            <span id="radio_value"></span>
+          </p>
+        </div>
+        <div>
+          欲しい悪魔の実は？
+          <label>
+            <input name="devil_fruits" type="checkbox" value="ゴムゴムの実" />ゴムゴムの実
+          </label>
+          <label>
+            <input name="devil_fruits" type="checkbox" value="ゴロゴロの実" />ゴロゴロの実
+          </label>
+          <label>
+            <input name="devil_fruits" type="checkbox" value="スケスケの実" />スケスケの実
+          </label>
+          <p><button id="devil_fruits_btn">あなたが選んだものは？</button></p>
+          <span id="devil_fruits_value"></span>
+        </div>
+      </div>
+      </form>
+    <script src="index.js"></script>
   </body>
 </html>
