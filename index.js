@@ -1,73 +1,24 @@
-/*フォームの操作
-①テキストボックス/テキストエリア
-②選択ボックス
-③ラジオボタン
-④チェックボックス
-*/
-//①テキストボックス/テキストエリア valueで取得
-let profile = document.getElementById("profile");
-let textarea_value = document.getElementById("textarea_value");
-let textarea_btn = document.getElementById("textarea_btn");
-textarea_btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    textarea_value.textContent = profile.value;
-});
+//フォームの検証(独自のエラー検証)
+let button = document.getElementById("button");
+let text = document.getElementById("text");
+let textError = document.getElementById("text_error");
 
-let chara_name = document.getElementById("name");
-let name_btn = document.getElementById("name_btn");
-name_btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    chara_name.value = "フランキー"
+button.addEventListener("click", function (e) {
+  if (text.validity.valueMissing) {  //入力必須で値がないとtrue
+    textError.innerHTML = "入力しないと作成できないよ〜";
+    resultForm.textContent = "";
+  } else if (text.validity.tooShort) {  //下限を下回るときにtrue
+    textError.innerHTML = "文字数が少ないよ〜"
+    resultForm.textContent = "";
+  } else if (text.validity.patternMismatch){  //パターンに一致しないときに
+    textError.innerHTML = "すべて全角カタカナじゃないよ〜"
+    resultForm.textContent = "";
+  } else {
+  textError.innerHTML = ""
+  let textVlaue = text.value;
+  let result = textVlaue.repeat(2) + "の実"
+  let resultForm = document.getElementById("resultForm");
+  resultForm.textContent = `『${result}』`;
+  }
+  e.preventDefault();
 });
-//②選択ボックス　value
-let admiral_members = document.getElementById("admiral_members");
-let select_value = document.getElementById("select_value");
-admiral_members.addEventListener("change", function (e) {
-    console.log(admiral_members.value);
-    switch (admiral_members.value) {
-        case "赤犬":
-            select_value.src = "img/akainu.png"
-            break;
-        case '青雉':
-            select_value.src = "img/aokiji.png"
-            break;
-        default:
-            select_value.src = "img/kizaru.png"
-            break;
-    }
-});
-//③ラジオボタン checked
-let getRadioChecked = function (radio_name) {
-    let result = "";
-    let elems = document.getElementsByName(radio_name);
-    for (let i = 0; i < elems.length; i++) {
-        if (elems[i].checked) {
-            result = elems[i].value;
-        }
-    }
-    let radio_value = document.getElementById("radio_value");
-    radio_value.textContent = result;
-};
-let four_emperors_btn = document.getElementById("four_emperors_btn");
-four_emperors_btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    getRadioChecked("four_emperors");
-})
-
-//④チェックボックス checked
-let getCheckbox = function (checkbox_name) {
-    let result = [];
-    let elems = document.getElementsByName(checkbox_name);
-    for (let i = 0; i < elems.length; i++) {
-        if (elems[i].checked) {
-            result.push(elems[i].value);
-        }
-    }
-    let devil_fruits_value = document.getElementById("devil_fruits_value");
-    devil_fruits_value.textContent = result;
-};
-let devil_fruits_btn = document.getElementById("devil_fruits_btn");
-devil_fruits_btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    getCheckbox("devil_fruits");
-})
