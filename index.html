@@ -2,25 +2,49 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>DOM操作</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="style.css">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <h1>悪魔の実を生成</h1>
-    <form id="form">
-      <div>
-        <label for="text">材料： </label>
-        <input type="text" id="text" required maxlength="3"
-          minlength="2" pattern="[\u30A1-\u30F6]*"/>
-      </div>
-      <div id="text_error" class="error">
-      </div>
-      <p>出来上がった悪魔の身は</p>
-      <h2 id="resultForm"></h2>
-      <p><input id="button" type="submit" value="作成する" />
-    </form>
-    <img src="img/doflamingo.png">
+    <h3>親要素: parentElement</h3>
+    <div id="parent-pink-box">
+      <div>親：ドラゴン</div>
+      <div id="luffy">ルフィ(基点)</div>
+    </div>
+
+    <h3>子要素: children</h3>
+    <div id="parent">
+      <div>親：ジャッジ(基点)</div>
+      <div>イチジ</div>
+      <div>ニジ</div>
+      <div>サンジ</div>
+      <div>ヨンジ</div>
+    </div>
+    <h3 id="last-h3">前後の要素</h3>
+    <div id="siblings">
+    <div>ナミ</div>
+    <div id="zoro">ゾロ(基点)</div>
+    <div>ウソップ</div>
+    </div>
+    <h3>要素の追加:createElement</h3>
+    <div id="frineds">
+      <div>ナミ</div>
+      <div>ゾロ</div>
+      <div>ウソップ</div>
+    </div>
+    <h3>要素の置き換え:replaceChild(new, old)</h3>
+    <div id="emperors">
+      <div>シャンクス</div>
+      <div>カイドウ</div>
+      <div>ビックマム</div>
+      <div id="old">白ひげ</div>
+    </div>
+    <h3>要素の複製:cloneNode<br>要素の削除:removeChild</h3>
+    <div id="partner">
+      <div id="nami">ナミ</div>
+      <div>サンジ</div>
+    </div>    
     <script src="index.js"></script>
   </body>
 </html>
