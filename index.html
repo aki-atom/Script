@@ -2,49 +2,18 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>DOM操作</title>
+    <title></title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="style.css">
   </head>
   <body>
-    <h3>親要素: parentElement</h3>
-    <div id="parent-pink-box">
-      <div>親：ドラゴン</div>
-      <div id="luffy">ルフィ(基点)</div>
-    </div>
-
-    <h3>子要素: children</h3>
-    <div id="parent">
-      <div>親：ジャッジ(基点)</div>
-      <div>イチジ</div>
-      <div>ニジ</div>
-      <div>サンジ</div>
-      <div>ヨンジ</div>
-    </div>
-    <h3 id="last-h3">前後の要素</h3>
-    <div id="siblings">
-    <div>ナミ</div>
-    <div id="zoro">ゾロ(基点)</div>
-    <div>ウソップ</div>
-    </div>
-    <h3>要素の追加:createElement</h3>
-    <div id="frineds">
-      <div>ナミ</div>
-      <div>ゾロ</div>
-      <div>ウソップ</div>
-    </div>
-    <h3>要素の置き換え:replaceChild(new, old)</h3>
-    <div id="emperors">
-      <div>シャンクス</div>
-      <div>カイドウ</div>
-      <div>ビックマム</div>
-      <div id="old">白ひげ</div>
-    </div>
-    <h3>要素の複製:cloneNode<br>要素の削除:removeChild</h3>
-    <div id="partner">
-      <div id="nami">ナミ</div>
-      <div>サンジ</div>
-    </div>    
+     <h1>DocumentFragmentオブジェクト</h1>
+     <button id="btn" class="btn btn-info">キャラクターを追加</button>
+     <ul id="list">
+       <li><img src="img/luffy.png" width="300" height="300"></li>
+     </ul>
     <script src="index.js"></script>
   </body>
 </html>
