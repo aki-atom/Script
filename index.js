@@ -1,69 +1,37 @@
-let btn = document.getElementById("btn");
-let reset = document.getElementById("reset");
+//独自データ属性　タグに対して任意に付与できる属性　data-xxxx
+let data = document.querySelectorAll("button[data-src]");
 let list = document.getElementById("list");
-//ルフィを取得
-let luffy = list.firstElementChild;
 
-btn.addEventListener(
-  "click",
-  change_backgound_color
-);
-
-reset.addEventListener(
-  "click",
-  reset_backgound_color
-);
-
-function change_backgound_color(){
-  //styleプロパティを利用する
-  luffy.style.backgroundColor = "red";
+for (let i = 0; i < data.length; i++){
+  data[i].addEventListener(
+    "click",
+    add_img
+  );
 }
 
-function reset_backgound_color() {
-  //スタイルプロパティの初期化 null
-  luffy.style.backgroundColor = null;
+function add_img(){
+  let li = document.createElement("li");
+  let img = document.createElement("img");
+  //data-xxxx属性の値は,getAttributeメソッドで取得
+  img.src = this.getAttribute("data-src");
+  li.appendChild(img);
+  list.appendChild(li);
 }
 
+//パラメータをイベントリスナーに渡す方法
 let btn2 = document.getElementById("btn2");
-let btn3 = document.getElementById("btn3");
-let btn4 = document.getElementById("btn4");
-let btn5 = document.getElementById("btn5");
 let list2 = document.getElementById("list2");
-
-//ナミを取得
-let nami = list2.firstElementChild;
-
-btn2.addEventListener(
-  "click",
-  toggle_pink_class
-);
-
-function toggle_pink_class() {
-  //classListプロパティ
-  //toggleはクラスのオンオフを切り替え
-  nami.classList.toggle("pink");
+//パラメータの中に「handleEventメソッド」を持たせること
+//イベントリスナーを登録したイベントが発生する度に呼び出すメソッド
+let params = {
+  src : "img/usopp.png",
+  handleEvent: function(){
+    let li = document.createElement("li");
+    let img = document.createElement("img");
+    img.src = this.src;
+    li.appendChild(img);
+    list2.appendChild(li);
+  }
 }
 
-//classNameプロパティ (上書き)
-// nami.className = "pink"
-
-btn3.addEventListener(
-  "click",
-  () => { //add クラスを追加
-    nami.classList.add("blue");
-  }
-);
-
-btn4.addEventListener(
-  "click",
-    () => { //add クラスを削除
-    nami.classList.remove("blue");
-  }
-);
-
-btn5.addEventListener(
-  "click",
-    () => { //replace(old, new) 置き換える
-    nami.classList.replace("pink", "blue");
-  }
-);
+btn2.addEventListener("click", params);

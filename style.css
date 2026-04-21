@@ -1,23 +1,45 @@
-/* 全体のフォントと背景色 */
+/* 全体のフォント、背景色、要素の中央寄せ */
 body {
     font-family: sans-serif;
-    margin: 20px;
-    background-color: #fdf5e6; /* 見本に近い、ごく淡いベージュ */
+    margin: 0; /* タイトルバーを端まで広げるため0に */
+    background-color: #fdf5e6;
+    text-align: center; /* ボタンや画像を中央に寄せる */
 }
 
-/* --- ここを追加 --- */
+/* 1. タイトル行（h1）の装飾 */
+h1 {
+    background-color: #000; /* 背景を黒 */
+    color: #fff;            /* 文字を白 */
+    margin-top: 0;          /* 上の隙間を消す */
+    padding: 20px 0;        /* 上下に余白を作る */
+    font-size: 2rem;
+}
+
+/* リストの設定 */
 ul {
-    list-style: none; /* リストのドットを消す */
-    padding-left: 0;  /* ドットがあった分の余白も詰めたい場合は追加 */
+    list-style: none; /* ドットを消す */
+    padding: 0;
+    margin: 0;
 }
 
-/* style.css に追加 */
+/* 2. 表示される画像の設定 */
 #list img {
     width: 300px;
     height: 300px;
-    object-fit: contain; /* 画像の比率を保ちたい場合 */
+    object-fit: contain;
+    display: block;      /* block要素にして中央寄せの準備 */
+    margin: 10px auto;   /* 左右をautoにすることで、画像自体を中央寄せにする */
 }
 
+#list2 img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    display: block;      /* block要素にして中央寄せの準備 */
+    margin: 10px auto;   /* 左右をautoにすることで、画像自体を中央寄せにする */
+}
+
+/* --- 以下は既存のまま --- */
 .pink {
     width: 300px;
     height: 300px;
