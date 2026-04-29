@@ -1,37 +1,31 @@
-//独自データ属性　タグに対して任意に付与できる属性　data-xxxx
-let data = document.querySelectorAll("button[data-src]");
+//動的に生成される要素のイベントの登録をする方法
+let btns = document.querySelectorAll(".btn");
 let list = document.getElementById("list");
+let btn_area = document.getElementById("btn_area");
 
-for (let i = 0; i < data.length; i++){
-  data[i].addEventListener(
-    "click",
-    add_img
-  );
-}
+/*
+btns.forEach(function(btn){
+  btn.addEventListener("click", add_img_btn)
+});
+*/
 
-function add_img(){
+function add_img_btn(){
+  //画像を追加
   let li = document.createElement("li");
   let img = document.createElement("img");
-  //data-xxxx属性の値は,getAttributeメソッドで取得
-  img.src = this.getAttribute("data-src");
+  img.src = "img/luffy.png";
   li.appendChild(img);
   list.appendChild(li);
+  //ボタンを追加
+  let button = document.createElement("button");
+  button.className = "btn btn-info mb-3 ml-1";
+  button.textContent = "ルフィ";
+  btn_area.appendChild(button);
 }
-
-//パラメータをイベントリスナーに渡す方法
-let btn2 = document.getElementById("btn2");
-let list2 = document.getElementById("list2");
-//パラメータの中に「handleEventメソッド」を持たせること
-//イベントリスナーを登録したイベントが発生する度に呼び出すメソッド
-let params = {
-  src : "img/usopp.png",
-  handleEvent: function(){
-    let li = document.createElement("li");
-    let img = document.createElement("img");
-    img.src = this.src;
-    li.appendChild(img);
-    list2.appendChild(li);
+//親要素に対してイベントリスナーを登録する
+btn_area.addEventListener("click", function(e){
+  //登録したい場所を指定する
+  if(e.target.classList.contains("btn")){
+    add_img_btn();
   }
-}
-
-btn2.addEventListener("click", params);
+});
